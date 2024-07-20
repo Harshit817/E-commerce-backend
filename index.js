@@ -4,9 +4,11 @@ const cookieParser = require('cookie-parser')
 require('dotenv').config()
 const connectDB = require('./config/db')
 const router = require('./routes')
-
-
 const app = express()
+app.use(express.static(__dirname));
+app.get("/*", function (req, res) {
+   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+})
 app.use(cors({
     origin: (origin, callback) => {
         callback(null, origin); // Reflect the request origin in the CORS response
