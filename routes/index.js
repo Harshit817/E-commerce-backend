@@ -23,7 +23,7 @@ const deleteAddToCartProduct = require('../controller/user/deleteAddToCartProduc
 const searchProduct = require('../controller/product/searchProduct')
 const filterProductController = require('../controller/product/filterProduct')
 
-
+router.get("/",(req,res)=>{ res.status(200).send("Welcome to api");});
 router.post("/signup",userSignUpController)
 router.post("/signin",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
