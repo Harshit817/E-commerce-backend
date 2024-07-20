@@ -8,7 +8,9 @@ const router = require('./routes')
 
 const app = express()
 app.use(cors({
-    origin: '*',
+    origin: (origin, callback) => {
+        callback(null, origin); // Reflect the request origin in the CORS response
+    },
     credentials: true
 }));
 app.use(express.json())
